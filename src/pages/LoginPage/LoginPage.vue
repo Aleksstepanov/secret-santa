@@ -1,10 +1,8 @@
 <template>
-  <div>
-    Страница входа
-  </div>
+  <div>Страница входа</div>
 </template>
 <script setup>
 defineOptions({
-  name: 'LoginPage',
-})
+  name: "LoginPage",
+});
 </script>

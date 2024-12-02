@@ -1,21 +1,20 @@
 <template>
-  <component :is="currentLayout"
-             :class="layoutClasses">
+  <component :is="currentLayout" :class="layoutClasses">
     <slot name="before-page"></slot>
-    <router-view :class="pageWrapperClasses"/>
+    <router-view :class="pageWrapperClasses" />
     <slot name="after-page"></slot>
   </component>
 </template>
 <script>
 export default {
-  name: 'LayoutBroker',
+  name: "LayoutBroker",
   props: {
     /**
      * Object with layouts components
      */
     layouts: {
       type: Object,
-      default: () => {}
+      default: () => {},
     },
 
     /**
@@ -23,7 +22,7 @@ export default {
      */
     current: {
       type: String,
-      default: null
+      default: null,
     },
 
     /**
@@ -31,7 +30,7 @@ export default {
      */
     layoutClasses: {
       type: [Object, Array],
-      default: () => ['layout']
+      default: () => ["layout"],
     },
 
     /**
@@ -39,17 +38,17 @@ export default {
      */
     pageWrapperClasses: {
       type: [Object, Array],
-      default: () => ['page-wrapper']
-    }
+      default: () => ["page-wrapper"],
+    },
   },
   computed: {
     /**
      * Return layout component name for current route
      * @return {string}
      */
-    currentLayout () {
-      return this.layouts[this.current]
-    }
-  }
-}
+    currentLayout() {
+      return this.layouts[this.current];
+    },
+  },
+};
 </script>

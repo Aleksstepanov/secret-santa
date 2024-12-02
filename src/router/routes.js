@@ -1,18 +1,18 @@
-import {metaPublic, metaAccount} from './meta-config'
+import { metaPublic, metaAccount } from "./meta-config";
 const routes = [
   {
     path: "/",
-    redirect: '/home',
+    redirect: "/home",
   },
   {
     path: "/login",
-    component: () => import('pages/LoginPage'),
-    meta: metaPublic
+    component: () => import("pages/LoginPage"),
+    meta: metaPublic,
   },
   {
     path: "/home",
-    component: () => import('pages/HomePage'),
-    meta: metaAccount
+    component: () => import("pages/HomePage"),
+    meta: metaAccount,
   },
 
   // Always leave this as last one,

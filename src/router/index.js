@@ -37,7 +37,7 @@ export default route(function (/* { store, ssrContext } */) {
 });
 
 export const defaultRedirect = () => {
-  const authStore = useAuthStore()
-  if (!authStore.isAuthenticated) return 'page-sign-in-greetings'
-  return 'page-my-health'
-}
+  const authStore = useAuthStore();
+  if (!authStore.isAuthenticated) return "page-sign-in-greetings";
+  return "page-my-health";
+};
