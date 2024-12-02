@@ -1,0 +1,26 @@
+<template>
+  <q-layout view="lHh Lpr lFf">
+    <TheHeader @click:menu="toggleLeftDrawer" />
+
+    <SideBar v-model:model-value="leftDrawerOpen" />
+
+    <q-page-container>
+      <router-view />
+    </q-page-container>
+  </q-layout>
+</template>
+
+<script setup>
+import { ref } from "vue";
+import { TheHeader } from "src/components/TheHeader";
+import { SideBar } from "src/components/SideBar";
+defineOptions({
+  name: "LayoutDefault",
+});
+
+const leftDrawerOpen = ref(false);
+
+const toggleLeftDrawer = () => {
+  leftDrawerOpen.value = !leftDrawerOpen.value;
+};
+</script>
