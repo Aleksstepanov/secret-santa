@@ -11,7 +11,7 @@ defineOptions({
   name: 'LoginPage'
 })
 
-const onSubmit = (payload) => {
+const onSubmit = payload => {
   console.log('payload', payload)
 }
 </script>
