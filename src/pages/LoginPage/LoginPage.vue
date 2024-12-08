@@ -1,7 +1,10 @@
 <template>
-  <div>Страница входа</div>
+  <div>
+    <LoginForm />
+  </div>
 </template>
 <script setup>
+import { LoginForm } from "src/components/LoginForm";
 defineOptions({
   name: "LoginPage",
 });

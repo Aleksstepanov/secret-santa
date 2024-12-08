@@ -9,6 +9,7 @@
 // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js
 
 const { configure } = require("quasar/wrappers");
+const svgLoader = require("vite-svg-loader");
 
 module.exports = configure(function (/* ctx */) {
   return {
@@ -64,6 +65,7 @@ module.exports = configure(function (/* ctx */) {
       // viteVuePluginOptions: {},
 
       vitePlugins: [
+        svgLoader(),
         [
           "vite-plugin-checker",
           {

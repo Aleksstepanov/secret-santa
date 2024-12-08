@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <TheHeader @click:menu="toggleLeftDrawer" />
+    <TheHeader show-btn-menu show-profile @click:menu="toggleLeftDrawer" />
 
     <SideBar v-model:model-value="leftDrawerOpen" />
 

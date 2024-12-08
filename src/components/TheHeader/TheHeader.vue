@@ -2,6 +2,7 @@
   <q-header elevated>
     <q-toolbar>
       <q-btn
+        v-if="showBtnMenu"
         flat
         dense
         round
@@ -10,12 +11,28 @@
         @click="emit('click:menu')"
       />
 
-      <q-toolbar-title> Secret Santa App </q-toolbar-title>
+      <q-toolbar-title>
+        <UiLogo />
+      </q-toolbar-title>
 
-      <div>Profile</div>
+      <div v-if="showProfile">Profile</div>
     </q-toolbar>
   </q-header>
 </template>
 <script setup>
+import { UiLogo } from "src/components/UiLogo";
+
+// props
+defineProps({
+  showBtnMenu: {
+    type: Boolean,
+    default: false,
+  },
+  showProfile: {
+    type: Boolean,
+    default: false,
+  },
+});
+// emits
 const emit = defineEmits(["click:menu"]);
 </script>
