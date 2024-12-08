@@ -32,8 +32,8 @@ api.interceptors.request.use(
 
       return config
     } catch (error) {
-      console.error('Request interceptor error:', error);
-      return Promise.reject(error);
+      console.error('Request interceptor error:', error)
+      return Promise.reject(error)
     }
   },
   error => Promise.reject(error)

@@ -6,7 +6,7 @@ import {
   createWebHashHistory
 } from 'vue-router'
 import routes from './routes'
-import {useAuthStore} from 'src/stores/auth'
+import { useAuthStore } from 'src/stores/auth'
 import { beforeEach } from './middleware'
 
 /*
@@ -39,8 +39,6 @@ export default route(function (/* { store, ssrContext } */) {
 
   return Router
 })
-
-
 
 export const defaultRedirect = () => {
   const authStore = useAuthStore()

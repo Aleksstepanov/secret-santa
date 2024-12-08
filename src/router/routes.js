@@ -1,5 +1,5 @@
 import { metaPublic, metaAccount } from './meta-config'
-import {redirectIfAuthenticated} from './middleware'
+import { redirectIfAuthenticated } from './middleware'
 
 const routes = [
   {
@@ -16,7 +16,7 @@ const routes = [
     path: '/home',
     name: 'Home',
     component: () => import('pages/HomePage'),
-    meta: metaAccount,
+    meta: metaAccount
     // beforeEnter: redirectIfAuthenticated,
   },
 
