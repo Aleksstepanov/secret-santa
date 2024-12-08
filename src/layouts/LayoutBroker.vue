@@ -7,14 +7,14 @@
 </template>
 <script>
 export default {
-  name: "LayoutBroker",
+  name: 'LayoutBroker',
   props: {
     /**
      * Object with layouts components
      */
     layouts: {
       type: Object,
-      default: () => {},
+      default: () => {}
     },
 
     /**
@@ -22,7 +22,7 @@ export default {
      */
     current: {
       type: String,
-      default: null,
+      default: null
     },
 
     /**
@@ -30,7 +30,7 @@ export default {
      */
     layoutClasses: {
       type: [Object, Array],
-      default: () => ["layout"],
+      default: () => ['layout']
     },
 
     /**
@@ -38,8 +38,8 @@ export default {
      */
     pageWrapperClasses: {
       type: [Object, Array],
-      default: () => ["page-wrapper"],
-    },
+      default: () => ['page-wrapper']
+    }
   },
   computed: {
     /**
@@ -47,8 +47,8 @@ export default {
      * @return {string}
      */
     currentLayout() {
-      return this.layouts[this.current];
-    },
-  },
-};
+      return this.layouts[this.current]
+    }
+  }
+}
 </script>

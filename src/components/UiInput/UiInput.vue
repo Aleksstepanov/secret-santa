@@ -1,14 +1,14 @@
 <template>
-  <q-input v-model:modelValue="getValue" />
+  <q-input v-model:modelValue="getValue" class="input" />
 </template>
 <script setup>
-import {computed} from 'vue'
+import { computed } from 'vue'
 
 // props
 const props = defineProps({
   modelValue: {
     type: String,
-    default: '',
+    default: ''
   }
 })
 
@@ -18,6 +18,9 @@ const emit = defineEmits(['update:modelValue'])
 // computed
 const getValue = computed({
   get: () => props.modelValue,
-  set: (newValue) => emit('update:modelValue', newValue)
+  set: newValue => emit('update:modelValue', newValue)
 })
 </script>
+<style scoped>
+@import './styles.css';
+</style>

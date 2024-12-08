@@ -1,9 +1,24 @@
 /* app global css */
-@import url("./normalize.css");
-@import url("./spacing.css");
-@import url("./helpers.css");
-@import url("./font.css");
+@import url('./normalize.css');
+@import url('./spacing.css');
+@import url('./helpers.css');
+@import url('./font.css');
 
 body {
   font-family: 'DeltaGothic', sans-serif;
+}
+
+:root {
+  --spacer-0: 0rem;
+  --spacer-4: 0.4rem;
+  --spacer-6: 0.6rem;
+  --spacer-8: 0.8rem;
+  --spacer-12: 1.2rem;
+  --spacer-16: 1.6rem;
+  --spacer-20: 2rem;
+  --spacer-24: 2.4rem;
+  --spacer-28: 2.8rem;
+  --spacer-32: 3.2rem;
+  --spacer-40: 4rem;
+  --spacer-60: 6rem;
 }

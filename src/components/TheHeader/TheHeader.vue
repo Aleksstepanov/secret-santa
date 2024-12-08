@@ -20,19 +20,19 @@
   </q-header>
 </template>
 <script setup>
-import { UiLogo } from "src/components/UiLogo";
+import { UiLogo } from 'src/components/UiLogo'
 
 // props
 defineProps({
   showBtnMenu: {
     type: Boolean,
-    default: false,
+    default: false
   },
   showProfile: {
     type: Boolean,
-    default: false,
-  },
-});
+    default: false
+  }
+})
 // emits
-const emit = defineEmits(["click:menu"]);
+const emit = defineEmits(['click:menu'])
 </script>

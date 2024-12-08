@@ -9,7 +9,7 @@
 .login-page__img {
   width: 50%;
   height: 100%;
-  background-image: url("src/assets/background-login-page.jpeg");
+  background-image: url('src/assets/background-login-page.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

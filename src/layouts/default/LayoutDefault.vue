@@ -11,16 +11,16 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { TheHeader } from "src/components/TheHeader";
-import { SideBar } from "src/components/SideBar";
+import { ref } from 'vue'
+import { TheHeader } from 'src/components/TheHeader'
+import { SideBar } from 'src/components/SideBar'
 defineOptions({
-  name: "LayoutDefault",
-});
+  name: 'LayoutDefault'
+})
 
-const leftDrawerOpen = ref(false);
+const leftDrawerOpen = ref(false)
 
 const toggleLeftDrawer = () => {
-  leftDrawerOpen.value = !leftDrawerOpen.value;
-};
+  leftDrawerOpen.value = !leftDrawerOpen.value
+}
 </script>

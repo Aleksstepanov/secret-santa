@@ -1,1 +1,1 @@
-export { default as UiLogo } from "./UiLogo.vue";
+export { default as UiLogo } from './UiLogo.vue'

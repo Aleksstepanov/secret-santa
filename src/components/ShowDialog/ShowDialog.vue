@@ -1,6 +1,6 @@
 <template>
   <q-dialog :model-value="showDialog">
-    <q-card style="width: 700px; max-width: 80vw;">
+    <q-card style="width: 700px; max-width: 80vw">
       <q-card-section>
         <div class="text-h6">{{ titleMsg }}</div>
       </q-card-section>
@@ -9,14 +9,9 @@
         {{ message }}
       </q-card-section>
 
-      <q-card-actions align="right"
-                      class="bg-white text-teal">
-        <q-btn flat
-               label="OK"
-               @click="$emit('confirm')" />
-        <q-btn v-close-popup
-               flat
-               label=" Close" />
+      <q-card-actions align="right" class="bg-white text-teal">
+        <q-btn flat label="OK" @click="$emit('confirm')" />
+        <q-btn v-close-popup flat label=" Close" />
       </q-card-actions>
     </q-card>
   </q-dialog>
@@ -39,5 +34,4 @@ defineProps({
     default: 'вы действительно хотите выйти?'
   }
 })
-
 </script>

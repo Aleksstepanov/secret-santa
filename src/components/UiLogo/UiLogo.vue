@@ -4,12 +4,12 @@
   </div>
 </template>
 <script setup>
-import Logo from "src/assets/logo.svg";
+import Logo from 'src/assets/logo.svg'
 
 defineOptions({
-  name: "UiLogo",
-});
+  name: 'UiLogo'
+})
 </script>
 <style scoped>
-@import "./styles.css";
+@import './styles.css';
 </style>

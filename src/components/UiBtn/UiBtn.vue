@@ -1,12 +1,14 @@
 <template>
-  <q-btn :label="label"
-         :loading="loading"
-         :disable="disable"
-         :icon="icon"
-         v-bind="other"
-         class="button"
-         @click="$emit('click')">
-    <slot ></slot>
+  <q-btn
+    :label="label"
+    :loading="loading"
+    :disable="disable"
+    :icon="icon"
+    v-bind="other"
+    class="button"
+    @click="$emit('click')"
+  >
+    <slot></slot>
   </q-btn>
 </template>
 <script setup>

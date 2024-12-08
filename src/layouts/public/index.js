@@ -1,1 +1,1 @@
-export { default } from "./LayoutPublic.vue";
+export { default } from './LayoutPublic.vue'

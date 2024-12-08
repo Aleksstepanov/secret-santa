@@ -8,9 +8,9 @@
 </template>
 
 <script setup>
-import { TheHeader } from "src/components/TheHeader";
+import { TheHeader } from 'src/components/TheHeader'
 
 defineOptions({
-  name: "LayoutPublic",
-});
+  name: 'LayoutPublic'
+})
 </script>

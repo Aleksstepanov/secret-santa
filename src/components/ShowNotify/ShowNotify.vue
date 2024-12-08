@@ -9,7 +9,7 @@ import { emitter } from 'src/plugins'
 const $q = useQuasar()
 
 // methods
-const showNotify = (options) => {
+const showNotify = options => {
   $q.notify(options)
 }
 
