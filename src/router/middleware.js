@@ -1,7 +1,7 @@
-import { defaultRedirect } from "src/router";
-import { useAuthStore } from "src/stores/auth/authStore";
+import { defaultRedirect } from 'src/router'
+import { useAuthStore } from 'src/stores/auth/authStore'
 
-const defaultAuthRedirect = { name: "login" };
+const defaultAuthRedirect = { name: 'login' }
 
 /**
  * Checks each route in config for auth directives
@@ -29,39 +29,48 @@ const defaultAuthRedirect = { name: "login" };
  * }
  */
 export const beforeEach = (to, from, next) => {
-  const { auth } = to.meta;
-  if (!auth) return next(); // public route
+  const { auth } = to.meta
+  if (!auth) return next() // public route
 
-  const authRequired = auth === true || auth.required === true || false;
-  if (!authRequired) return next(); // public route
+  const authRequired = auth === true || auth.required === true || false
+  if (!authRequired) return next() // public route
 
   const redirect = () => {
-    if (typeof auth.redirect === "function") return auth.redirect({ from, to });
-    const fromRoute = from.name ? from : null;
-    return auth.redirect || fromRoute || defaultAuthRedirect;
-  };
+    if (typeof auth.redirect === 'function') return auth.redirect({ from, to })
+    const fromRoute = from.name ? from : null
+    return auth.redirect || fromRoute || defaultAuthRedirect
+  }
 
-  const authStore = useAuthStore();
+  const authStore = useAuthStore()
 
   if (!authStore.isAuthenticated) {
-    const route = redirect();
+    const route = redirect()
     // add a hint where to redirect after login (a query param)
-    const redirectAfterLoginTo = to && to.fullPath;
+    const redirectAfterLoginTo = to && to.fullPath
     if (redirectAfterLoginTo) {
       route.query = {
         ...route.query,
-        redirect: redirectAfterLoginTo,
-      };
+        redirect: redirectAfterLoginTo
+      }
     }
-    return next(route);
+    return next(route)
   }
 
   // otherwise move forward
-  next();
-};
+  next()
+}
 
 export const redirectIfAuthenticated = (to, from, next) => {
-  const authStore = useAuthStore();
-  if (!authStore.isAuthenticated) return next();
-  next({ name: defaultRedirect() });
-};
+  const authStore = useAuthStore()
+
+  // Если пользователь не аутентифицирован, продолжаем навигацию
+  if (!authStore.isAuthenticated) return next()
+
+  // Если пользователь уже аутентифицирован и пытается попасть на /home, редиректим его на defaultRedirect
+  if (to.name === 'Home') {
+    return next({ name: defaultRedirect() })
+  }
+
+  // Для остальных случаев, продолжить навигацию
+  next()
+}

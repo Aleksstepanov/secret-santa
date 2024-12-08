@@ -3,6 +3,6 @@
 </template>
 <script setup>
 defineOptions({
-  name: "HomePage",
-});
+  name: 'HomePage'
+})
 </script>

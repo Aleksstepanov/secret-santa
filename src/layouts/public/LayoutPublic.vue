@@ -1,5 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf">
+    <TheHeader />
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -7,7 +8,9 @@
 </template>
 
 <script setup>
+import { TheHeader } from 'src/components/TheHeader'
+
 defineOptions({
-  name: "LayoutPublic",
-});
+  name: 'LayoutPublic'
+})
 </script>
