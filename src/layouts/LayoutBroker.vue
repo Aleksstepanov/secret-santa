@@ -4,10 +4,15 @@
     <router-view :class="pageWrapperClasses" />
     <slot name="after-page"></slot>
   </component>
+  <ShowNotify />
 </template>
 <script>
+import { ShowNotify } from 'src/components/ShowNotify'
 export default {
   name: 'LayoutBroker',
+  components: {
+    ShowNotify
+  },
   props: {
     /**
      * Object with layouts components

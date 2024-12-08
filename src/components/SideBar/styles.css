@@ -1,0 +1,24 @@
+.side-bar__list {
+  border: 2px solid #ab3432;
+  border-radius: 4px;
+  margin-top: 50px;
+  margin-right: 8px;
+  margin-left: 8px;
+}
+.side-bar__title {
+  font-size: 41.4px;
+  font-weight: 400;
+  line-height: 46px;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.side-bar__item {
+  font-size: 23px;
+  font-weight: 400;
+  line-height: 34.5px;
+  text-decoration: none;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  cursor: pointer;
+}

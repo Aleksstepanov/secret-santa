@@ -7,6 +7,7 @@
     <q-page-container>
       <router-view />
     </q-page-container>
+    <TheFooter />
   </q-layout>
 </template>
 
@@ -14,6 +15,8 @@
 import { ref } from 'vue'
 import { TheHeader } from 'src/components/TheHeader'
 import { SideBar } from 'src/components/SideBar'
+import { TheFooter } from 'src/components/TheFooter'
+
 defineOptions({
   name: 'LayoutDefault'
 })

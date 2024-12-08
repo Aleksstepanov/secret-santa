@@ -10,6 +10,7 @@ import { useRouter } from 'vue-router'
 import { LoginForm } from 'src/components/LoginForm'
 import { fakeRequest } from 'src/utils'
 import { useAuthStore } from 'src/stores/auth'
+import { emitter } from 'src/plugins'
 
 defineOptions({
   name: 'LoginPage'
@@ -31,6 +32,10 @@ const onSubmit = async payload => {
     await router.push({ name: 'Home' })
   } catch (error) {
     console.log(error)
+    emitter.emit('notify', {
+      type: 'negative',
+      message: `Ошибка авторизации. ${error?.message || ''}`
+    })
   } finally {
     state.isLoading = false
   }

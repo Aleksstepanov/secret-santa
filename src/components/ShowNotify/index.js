@@ -1,1 +1,1 @@
-export { default } from './ShowNotify.vue'
+export { default as ShowNotify } from './ShowNotify.vue'
