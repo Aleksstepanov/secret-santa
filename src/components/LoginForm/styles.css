@@ -1,0 +1,20 @@
+.login-form__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  border: 1.4px solid #000000;
+  padding: 26px 50px 26px 50px;
+  height: 445px;
+}
+.login-form input {
+  font-size: 32px;
+  line-height: 42.32px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+.login-form__form {
+  width: 470px;
+}

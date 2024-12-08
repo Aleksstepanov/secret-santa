@@ -1,0 +1,23 @@
+.login-page {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.login-page__img {
+  width: 50%;
+  height: 100%;
+  background-image: url("src/assets/background-login-page.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.login-page__form {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

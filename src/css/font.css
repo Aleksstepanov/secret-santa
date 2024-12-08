@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'DeltaGothic';
+  src: url('src/assets/fonts/Dela-Gothic-One/DelaGothicOne-Regular.ttf') format('ttf');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
