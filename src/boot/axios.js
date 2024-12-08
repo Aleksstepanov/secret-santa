@@ -1,24 +1,90 @@
 import { boot } from 'quasar/wrappers'
 import axios from 'axios'
+import { useAuthStore } from 'src/stores/auth/authStore'
 
-// Be careful when using SSR for cross-request state pollution
-// due to creating a Singleton instance here;
-// If any client changes this (global) instance, it might be a
-// good idea to move this instance creation inside of the
-// "export default () => {}" function below (which runs individually
-// for each client)
-const api = axios.create({ baseURL: 'https://api.example.com' })
+// Создаём экземпляр Axios
+const api = axios.create({
+  baseURL: process.env.VITE_STRAPI_REST,
+  headers: {
+    'Content-Type': 'application/json'
+  }
+})
+
+api.interceptors.request.use(
+  async config => {
+    try {
+      const publicEndpoints = [
+        'auth/local',
+        'auth/local/register',
+        'auth/forgot-password',
+        'auth/reset-password'
+      ]
+
+      if (publicEndpoints.includes(config.url || '')) {
+        return config
+      }
+
+      const accessToken = localStorage.getItem('accessToken')
+      config.headers.Authorization = `Bearer ${accessToken}`
+      config.headers['Content-Type'] = config.url?.includes('upload')
+        ? 'multipart/form-data'
+        : 'application/json'
+
+      return config
+    } catch (error) {
+      console.error('Request interceptor error:', error);
+      return Promise.reject(error);
+    }
+  },
+  error => Promise.reject(error)
+)
+
+api.interceptors.response.use(
+  response => {
+    return response
+  },
+  async err => {
+    const originalConfig = err.config
+    if (err.response) {
+      if (err.response.status === 401 && !originalConfig._retry) {
+        originalConfig._retry = true
+        const authStore = useAuthStore()
+        try {
+          const refreshToken = authStore.getRefreshToken()
+          const res = await axios.post(`${process.env.VITE_STRAPI_REST}/token/refresh`, {
+            refreshToken
+          })
+
+          authStore.authenticate({
+            accessToken: res.data.jwt,
+            refreshToken: res.data.refreshToken
+          })
+
+          api.defaults.headers.Authorization = `Bearer ${res.data.jwt}`
+          api.defaults.headers['Content-Type'] = originalConfig.url.includes('upload')
+            ? 'multipart/form-data'
+            : 'application/json'
+
+          return api(originalConfig)
+        } catch (refreshError) {
+          const authStore = useAuthStore()
+          authStore.logout()
+          return Promise.reject(refreshError)
+        }
+      }
+
+      if (err.response.status === 403 && err.response.data) {
+        return Promise.reject(err.response.data)
+      }
+    }
+
+    return Promise.reject(err)
+  }
+)
 
 export default boot(({ app }) => {
-  // for use inside Vue files (Options API) through this.$axios and this.$api
-
   app.config.globalProperties.$axios = axios
-  // ^ ^ ^ this will allow you to use this.$axios (for Vue Options API form)
-  //       so you won't necessarily have to import axios in each vue file
-
   app.config.globalProperties.$api = api
-  // ^ ^ ^ this will allow you to use this.$api (for Vue Options API form)
-  //       so you can easily perform requests against your app's API
 })
 
 export { api }

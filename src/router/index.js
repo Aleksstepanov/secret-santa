@@ -6,6 +6,8 @@ import {
   createWebHashHistory
 } from 'vue-router'
 import routes from './routes'
+import {useAuthStore} from 'src/stores/auth'
+import { beforeEach } from './middleware'
 
 /*
  * If not building with SSR mode, you can
@@ -33,11 +35,15 @@ export default route(function (/* { store, ssrContext } */) {
     history: createHistory(process.env.VUE_ROUTER_BASE)
   })
 
+  Router.beforeEach(beforeEach)
+
   return Router
 })
 
+
+
 export const defaultRedirect = () => {
   const authStore = useAuthStore()
-  if (!authStore.isAuthenticated) return 'page-sign-in-greetings'
-  return 'page-my-health'
+  if (!authStore.isAuthenticated) return 'login'
+  return 'Home'
 }

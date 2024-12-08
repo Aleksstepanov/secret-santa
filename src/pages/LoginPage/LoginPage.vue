@@ -1,18 +1,39 @@
 <template>
   <div class="login-page">
     <div class="login-page__img"></div>
-    <LoginForm class="login-page__form" @submit="onSubmit" />
+    <LoginForm class="login-page__form" :loading="state.isLoading" @submit="onSubmit" />
   </div>
 </template>
 <script setup>
+import { reactive } from 'vue'
+import {useRouter} from 'vue-router'
 import { LoginForm } from 'src/components/LoginForm'
+import {fakeRequest} from 'src/utils'
+import {useAuthStore} from 'src/stores/auth'
 
 defineOptions({
   name: 'LoginPage'
 })
 
-const onSubmit = payload => {
+const authStore = useAuthStore()
+const router = useRouter()
+
+// state
+const state = reactive({
+  isLoading: false
+})
+const onSubmit = async (payload) => {
   console.log('payload', payload)
+  try {
+    state.isLoading = true
+    await fakeRequest(2000)
+    authStore.authenticate({accessToken: 'accessToken', refreshToken: 'refreshToken'})
+    await router.push({name: 'Home'})
+  } catch (error) {
+    console.log(error)
+  } finally {
+    state.isLoading = false
+  }
 }
 </script>
 <style scoped>

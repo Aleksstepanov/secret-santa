@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { accessToken, refreshToken } from './state'
-import { isAuthenticated } from './getters'
+import { isAuthenticated, getRefreshToken } from './getters'
 import { authenticate, logout } from './actions'
 
 export const useAuthStore = defineStore('auth', () => {
@@ -9,6 +9,7 @@ export const useAuthStore = defineStore('auth', () => {
     refreshToken,
     isAuthenticated,
     authenticate,
-    logout
+    logout,
+    getRefreshToken
   }
 })

@@ -62,6 +62,15 @@ export const beforeEach = (to, from, next) => {
 
 export const redirectIfAuthenticated = (to, from, next) => {
   const authStore = useAuthStore()
+
+  // Если пользователь не аутентифицирован, продолжаем навигацию
   if (!authStore.isAuthenticated) return next()
-  next({ name: defaultRedirect() })
+
+  // Если пользователь уже аутентифицирован и пытается попасть на /home, редиректим его на defaultRedirect
+  if (to.name === 'Home') {
+    return next({ name: defaultRedirect() })
+  }
+
+  // Для остальных случаев, продолжить навигацию
+  next()
 }
