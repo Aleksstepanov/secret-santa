@@ -6,14 +6,18 @@
   border-radius: 50px;
   border: 1.4px solid #000000;
   padding: 26px 50px 26px 50px;
-  /*height: 500px;*/
+  height: auto;
+}
+.login-form__title {
+  font-size: 36px;
+  margin-top: 16px;
 }
 .login-form__label {
   padding: 0;
   margin: 0;
   text-align: left;
   width: 100%;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 400;
   line-height: 18.51px;
   text-underline-position: from-font;
@@ -23,7 +27,7 @@
 }
 .login-form input {
   font-size: 32px;
-  line-height: 42.32px;
+  /*line-height: 42.32px;*/
   text-align: left;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;

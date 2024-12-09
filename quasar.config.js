@@ -66,7 +66,7 @@ module.exports = configure(function (/* ctx */) {
 
       vitePlugins: [
         svgLoader({
-          defaultImport: 'url',
+          defaultImport: 'url'
         }),
         [
           'vite-plugin-checker',

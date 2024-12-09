@@ -4,7 +4,7 @@
   </div>
 </template>
 <script setup>
-import logoSrc from 'src/assets/logo.svg';
+import logoSrc from 'src/assets/logo.svg'
 
 defineOptions({
   name: 'UiLogo'

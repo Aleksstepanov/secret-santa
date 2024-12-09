@@ -12,7 +12,7 @@
       />
 
       <q-toolbar-title>
-        <UiLogo class="logo"/>
+        <UiLogo class="logo" />
       </q-toolbar-title>
 
       <div v-if="showProfile">Profile</div>
@@ -38,9 +38,10 @@ const emit = defineEmits(['click:menu'])
 </script>
 <style>
 .header {
-  background-color: #AB3432; 
-  width: 100vw;
-  height: 80px; }
+  background-color: #ab3432;
+  width: 100%;
+  height: 10%;
+}
 .logo {
   width: 16%;
   height: 63px;
