@@ -4,7 +4,7 @@ import { useAuthStore } from 'src/stores/auth/authStore'
 
 // Создаём экземпляр Axios
 const api = axios.create({
-  baseURL: process.env.VITE_STRAPI_REST,
+  baseURL: process.env.VITE_STRAPI_REST || 'http://150.241.89.79:8080',
   headers: {
     'Content-Type': 'application/json'
   }

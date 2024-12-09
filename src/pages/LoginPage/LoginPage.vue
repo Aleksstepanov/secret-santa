@@ -11,6 +11,7 @@ import { LoginForm } from 'src/components/LoginForm'
 import { fakeRequest } from 'src/utils'
 import { useAuthStore } from 'src/stores/auth'
 import { emitter } from 'src/plugins'
+import { api } from 'src/boot/axios'
 
 defineOptions({
   name: 'LoginPage'
@@ -27,8 +28,14 @@ const onSubmit = async payload => {
   console.log('payload', payload)
   try {
     state.isLoading = true
+    const { access_token: accessToken, refresh_token: refreshToken } = await api.post(
+      '/auth/token',
+      {
+        data: payload
+      }
+    )
     await fakeRequest(2000)
-    authStore.authenticate({ accessToken: 'accessToken', refreshToken: 'refreshToken' })
+    authStore.authenticate({ accessToken, refreshToken })
     await router.push({ name: 'Home' })
   } catch (error) {
     console.log(error)
