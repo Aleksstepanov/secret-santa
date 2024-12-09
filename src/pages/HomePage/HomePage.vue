@@ -6,12 +6,22 @@
       Тайный санта - это увлекательная игра для семьи, друзей, коллег, да и просто
       компании, ожидающей праздника!
     </p>
+    <div class="buttons">
+      <UiBtn label="Присоединяйся!" @click="onClick" />
+    </div>
   </div>
 </template>
 <script setup>
+import { UiBtn } from 'src/components/UiBtn'
+import { useRouter } from 'vue-router'
 defineOptions({
   name: 'HomePage'
 })
+
+const router = useRouter()
+const onClick = () => {
+  router.push({ name: 'login' })
+}
 </script>
 <style>
 .image-container {
@@ -41,5 +51,11 @@ defineOptions({
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
   margin: 0;
+}
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 80px;
 }
 </style>
