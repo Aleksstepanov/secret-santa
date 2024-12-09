@@ -25,17 +25,18 @@ const state = reactive({
   isLoading: false
 })
 const onSubmit = async payload => {
-  console.log('payload', payload)
+  const { email, password } = payload
   try {
     state.isLoading = true
-    const { access_token: accessToken, refresh_token: refreshToken } = await api.post(
-      '/auth/token',
-      {
-        data: payload
-      }
-    )
-    await fakeRequest(2000)
-    authStore.authenticate({ accessToken, refreshToken })
+    const data = await api.post('/auth/token', {
+      email,
+      password
+    })
+    if (data?.status === 200) {
+      const { access_token: accessToken, refresh_token: refreshToken } = data?.data || {}
+      authStore.authenticate({ accessToken, refreshToken })
+    }
+
     await router.push({ name: 'Home' })
   } catch (error) {
     console.log(error)
