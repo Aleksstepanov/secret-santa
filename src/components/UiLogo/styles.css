@@ -1,0 +1,12 @@
+.logo {
+  width: 20%;
+  height: auto;
+  overflow: visible;
+}
+
+.logo__svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}

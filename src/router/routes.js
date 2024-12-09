@@ -4,7 +4,7 @@ import { redirectIfAuthenticated } from './middleware'
 const routes = [
   {
     path: '/',
-    redirect: '/home'
+    redirect: '/rooms'
   },
   {
     path: '/login',
@@ -16,8 +16,14 @@ const routes = [
     path: '/home',
     name: 'Home',
     component: () => import('pages/HomePage'),
-    meta: metaAccount
+    meta: metaPublic
     // beforeEnter: redirectIfAuthenticated,
+  },
+  {
+    path: '/rooms',
+    name: 'Rooms',
+    component: () => import('pages/RoomsPage'),
+    meta: metaAccount
   },
 
   // Always leave this as last one,

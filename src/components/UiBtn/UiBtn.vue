@@ -3,7 +3,6 @@
     :label="label"
     :loading="loading"
     :disable="disable"
-    :icon="icon"
     v-bind="other"
     class="button"
     @click="$emit('click')"

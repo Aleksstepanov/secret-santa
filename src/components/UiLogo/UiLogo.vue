@@ -1,10 +1,9 @@
 <template>
   <div class="logo">
-    <Logo />
+    <img src="src/assets/logo.svg" alt="Logo" class="logo__svg" />
   </div>
 </template>
 <script setup>
-import Logo from 'src/assets/logo.svg'
 
 defineOptions({
   name: 'UiLogo'
