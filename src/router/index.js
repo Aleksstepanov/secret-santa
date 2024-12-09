@@ -42,6 +42,6 @@ export default route(function (/* { store, ssrContext } */) {
 
 export const defaultRedirect = () => {
   const authStore = useAuthStore()
-  if (!authStore.isAuthenticated) return 'home'
-  return 'Home'
+  if (!authStore.isAuthenticated) return 'Home'
+  return 'Rooms'
 }

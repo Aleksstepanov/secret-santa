@@ -1,7 +1,7 @@
 import { defaultRedirect } from 'src/router'
 import { useAuthStore } from 'src/stores/auth/authStore'
 
-const defaultAuthRedirect = { name: 'login' }
+const defaultAuthRedirect = { name: 'Home' }
 
 /**
  * Checks each route in config for auth directives
@@ -63,10 +63,8 @@ export const beforeEach = (to, from, next) => {
 export const redirectIfAuthenticated = (to, from, next) => {
   const authStore = useAuthStore()
 
-  // Если пользователь не аутентифицирован, продолжаем навигацию
   if (!authStore.isAuthenticated) return next()
 
-  // Если пользователь уже аутентифицирован и пытается попасть на /home, редиректим его на defaultRedirect
   if (to.name === 'Home') {
     return next({ name: defaultRedirect() })
   }
