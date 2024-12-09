@@ -1,5 +1,5 @@
 <template>
-  <q-header elevated>
+  <q-header elevated class="header">
     <q-toolbar>
       <q-btn
         v-if="showBtnMenu"
@@ -12,7 +12,7 @@
       />
 
       <q-toolbar-title>
-        <UiLogo />
+        <UiLogo class="logo"/>
       </q-toolbar-title>
 
       <div v-if="showProfile">Profile</div>
@@ -36,3 +36,15 @@ defineProps({
 // emits
 const emit = defineEmits(['click:menu'])
 </script>
+<style>
+.header {
+  background-color: #AB3432; 
+  width: 100vw;
+  height: 80px; }
+.logo {
+  width: 16%;
+  height: 63px;
+  margin-top: 9px;
+  margin-left: 20px;
+}
+</style>
