@@ -4,7 +4,7 @@ import { redirectIfAuthenticated } from './middleware'
 const routes = [
   {
     path: '/',
-    redirect: '/rooms'
+    redirect: '/rooms/all'
   },
   {
     path: '/login',
@@ -20,11 +20,20 @@ const routes = [
     // beforeEnter: redirectIfAuthenticated,
   },
   {
-    path: '/rooms',
+    path: '/rooms/:filter?',
     name: 'Rooms',
     component: () => import('pages/RoomsPage'),
-    meta: metaAccount
+    meta: metaAccount,
+    props: true,
+    beforeEnter: (to, from, next) => {
+      if (!to.params.filter) {
+        next({ name: 'Rooms', params: { filter: 'all' } })
+      } else {
+        next()
+      }
+    }
   },
+
   {
     path: '/error-page/:code',
     name: 'ErrorPage',

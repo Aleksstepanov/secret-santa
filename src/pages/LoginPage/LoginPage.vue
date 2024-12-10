@@ -8,7 +8,6 @@
 import { reactive } from 'vue'
 import { useRouter } from 'vue-router'
 import { LoginForm } from 'src/components/LoginForm'
-import { fakeRequest } from 'src/utils'
 import { useAuthStore } from 'src/stores/auth'
 import { emitter } from 'src/plugins'
 import { api } from 'src/boot/axios'
@@ -28,10 +27,16 @@ const onSubmit = async payload => {
   const { email, password } = payload
   try {
     state.isLoading = true
-    const data = await api.post('/auth/token', {
-      email,
-      password
-    })
+    const data = await api.post(
+      '/auth/token',
+      {
+        email,
+        password
+      },
+      {
+        mode: 'cors'
+      }
+    )
     if (data?.status === 200) {
       const { access_token: accessToken, refresh_token: refreshToken } = data?.data || {}
       authStore.authenticate({ accessToken, refreshToken })
@@ -39,7 +44,7 @@ const onSubmit = async payload => {
 
     await router.push({ name: 'Home' })
   } catch (error) {
-    console.log(error)
+    console.log(error?.message || '')
     emitter.emit('notify', {
       type: 'negative',
       message: `Ошибка авторизации. ${error?.message || ''}`

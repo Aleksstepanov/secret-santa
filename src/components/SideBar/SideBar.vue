@@ -4,7 +4,7 @@
       <q-item-label header class="side-bar__title">Меню</q-item-label>
 
       <q-item v-for="item in navItemsList" :key="item.title">
-        <q-item-label class="side-bar__item" @click="router.push(item.path)">
+        <q-item-label class="side-bar__item" @click="router.push(item.to)">
           {{ item.title }}
         </q-item-label>
       </q-item>

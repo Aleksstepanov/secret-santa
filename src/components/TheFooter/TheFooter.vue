@@ -1,6 +1,6 @@
 <template>
   <q-footer elevated class="footer">
-    <FooterImg />
+    <img :src="FooterImg" alt="footer" />
   </q-footer>
 </template>
 <script setup>

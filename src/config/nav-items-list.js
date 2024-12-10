@@ -2,13 +2,19 @@ export const navItemsList = [
   {
     title: 'Все комнаты',
     to: {
-      name: 'Home'
+      name: 'Rooms',
+      params: {
+        filter: 'all'
+      }
     }
   },
   {
     title: 'Мои конматы',
     to: {
-      name: 'Home'
+      name: 'Rooms',
+      params: {
+        filter: 'my'
+      }
     }
   }
 ]
