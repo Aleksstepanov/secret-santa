@@ -36,7 +36,7 @@ const routes = [
     path: '/:catchAll(.*)*',
     component: () => import('pages/ErrorPage'),
     meta: metaPublic,
-    props: () => ({ code: '404' }),
+    props: () => ({ code: '404' })
   }
 ]
 
