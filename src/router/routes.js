@@ -25,12 +25,18 @@ const routes = [
     component: () => import('pages/RoomsPage'),
     meta: metaAccount
   },
-
-  // Always leave this as last one,
-  // but you can also remove it
+  {
+    path: '/error-page/:code',
+    name: 'ErrorPage',
+    component: () => import('pages/ErrorPage'),
+    props: route => ({ code: route.params.code }),
+    meta: metaPublic
+  },
   {
     path: '/:catchAll(.*)*',
-    component: () => import('pages/ErrorNotFound.vue')
+    component: () => import('pages/ErrorPage'),
+    meta: metaPublic,
+    props: () => ({ code: '404' }),
   }
 ]
 
