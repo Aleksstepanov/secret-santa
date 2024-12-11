@@ -2,15 +2,13 @@
   <div class="login-form__content">
     <h3 class="login-form__title">Добро пожаловать</h3>
     <q-form class="login-form__form" @submit="onSubmit">
-      <UiField direction="column" full-width class="mb-12">
+      <UiField v-show="isRegister" direction="column" full-width class="mb-12">
         <p class="login-form__label">Ваше Имя</p>
         <UiInput
           v-model:model-value="fields.fullName"
           outlined
           label="Ваше имя"
           class="full-width"
-          :error-message="validationErrors.fullName.message"
-          :error="validationErrors.fullName.invalid"
           :loading="loading"
           :disabled="loading"
         />
@@ -43,13 +41,24 @@
         />
       </UiField>
       <UiField direction="row" justify="end" align="center" class="mt-6">
-        <UiBtn label="Создать" type="submit" :loading="loading" />
+        <q-checkbox
+          v-model="isRegisterModel"
+          style="font-size: 18px"
+          label="Зарегистрироваться"
+        />
+      </UiField>
+      <UiField direction="row" justify="end" align="center" class="mt-6">
+        <UiBtn
+          :label="isRegister ? 'Зарегистрироваться' : 'Войти'"
+          type="submit"
+          :loading="loading"
+        />
       </UiField>
     </q-form>
   </div>
 </template>
 <script setup>
-import { reactive } from 'vue'
+import { reactive, computed } from 'vue'
 import { UiInput } from 'src/components/UiInput'
 import { UiField } from 'src/components/UiField'
 import { UiBtn } from 'src/components/UiBtn'
@@ -57,11 +66,15 @@ import { useForm, useFormProps } from 'src/composibles'
 import validationRules from './validation-rules'
 
 // emits
-const emit = defineEmits(['submit'])
+const emit = defineEmits(['submit', 'update:register'])
 
 // props
 const props = defineProps({
-  ...useFormProps()
+  ...useFormProps(),
+  isRegister: {
+    type: Boolean,
+    default: true
+  }
 })
 
 const fields = reactive({
@@ -81,6 +94,10 @@ const onSubmit = async () => {
 const { validationErrors, submit } = useForm({
   fields,
   rules: validationRules()
+})
+const isRegisterModel = computed({
+  get: () => props.isRegister,
+  set: val => emit('update:register', val)
 })
 </script>
 <style scoped>

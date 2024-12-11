@@ -8,6 +8,10 @@
           {{ item.title }}
         </q-item-label>
       </q-item>
+
+      <q-item>
+        <q-item-label class="side-bar__item" @click="logout"> Выход </q-item-label>
+      </q-item>
     </q-list>
   </q-drawer>
 </template>
@@ -15,8 +19,11 @@
 import { navItemsList } from 'src/config'
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
+import { useAuthStore } from 'stores/auth'
 
 const router = useRouter()
+const auth = useAuthStore()
+
 // props
 const props = defineProps({
   modelValue: {
@@ -33,6 +40,12 @@ const getValue = computed({
   get: () => props.modelValue,
   set: val => emit('update:model-value', val)
 })
+
+// mthods
+const logout = () => {
+  console.log('clic')
+  auth.logout()
+}
 </script>
 <style scoped>
 @import './styles.css';

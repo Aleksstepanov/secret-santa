@@ -4,16 +4,6 @@ const requiredMsg = 'Это поле обязательно к заполнен�
 
 export default () => {
   return {
-    fullName: {
-      required: {
-        validator: required,
-        message: requiredMsg
-      },
-      maxLength: {
-        validator: maxLength(50),
-        message: 'Максимальная длинна Имени - 50 символов'
-      }
-    },
     email: {
       email: {
         validator: email,
