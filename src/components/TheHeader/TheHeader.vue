@@ -1,5 +1,5 @@
 <template>
-  <q-header elevated class="header">
+  <q-header class="header">
     <q-toolbar>
       <q-btn
         v-if="showBtnMenu"

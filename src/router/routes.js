@@ -33,7 +33,13 @@ const routes = [
       }
     }
   },
-
+  {
+    path: '/rooms/:id',
+    name: 'Room',
+    component: () => import('pages/RoomPage'),
+    meta: metaAccount,
+    props: route => ({ id: route.params.id })
+  },
   {
     path: '/error-page/:code',
     name: 'ErrorPage',

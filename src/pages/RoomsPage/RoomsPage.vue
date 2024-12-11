@@ -41,3 +41,12 @@ const onCreateRoom = payload => {
   state.showModal = false
 }
 </script>
+<style>
+.page-rooms__button {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  padding: 16px;
+  border-radius: 22px;
+}
+</style>

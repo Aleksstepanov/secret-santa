@@ -7,7 +7,7 @@
       компании, ожидающей праздника!
     </p>
     <div class="buttons">
-      <UiBtn label="Присоединяйся!" @click="onClick" />
+      <UiBtn class="main_btn" label="Присоединяйся!" @click="onClick" />
     </div>
     <h2 class="title">Как это работает?</h2>
     <p class="text">
@@ -47,7 +47,7 @@ const onClick = () => {
 }
 .title {
   font-size: 54px;
-  font-weight: 200px;
+  font-weight: 600;
   line-height: 60px;
   letter-spacing: -0.025em;
   margin-right: 15%;
@@ -60,7 +60,7 @@ const onClick = () => {
 }
 .text {
   font-size: 30px;
-  font-weight: 200px;
+  font-weight: 400;
   line-height: 42px;
   text-align: center;
   text-underline-position: from-font;
@@ -74,6 +74,14 @@ const onClick = () => {
   flex-direction: row;
   justify-content: center;
   margin-top: 80px;
+}
+.buttons button {
+  height: 165px !important;
+  width: 600px !important;
+  border-radius: 50px;
+}
+.main_btn span {
+  font-size: 48px;
 }
 .img {
   background-size: cover;
