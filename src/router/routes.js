@@ -34,7 +34,7 @@ const routes = [
     }
   },
   {
-    path: '/rooms/:id',
+    path: '/room/:id',
     name: 'Room',
     component: () => import('pages/RoomPage'),
     meta: metaAccount,

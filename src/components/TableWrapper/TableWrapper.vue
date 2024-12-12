@@ -27,15 +27,15 @@
           </div>
         </q-td>
       </template>
-      <template v-slot:body-cell-name="props">
-        <q-td :props="props">
-          <div>
-            <router-link :to="{ name: to, params: { id: props.row.id } }">{{
-              props.key
-            }}</router-link>
-          </div>
-        </q-td>
-      </template>
+      <!--      <template v-slot:body-cell-name="props">-->
+      <!--        <q-td :props="props">-->
+      <!--          <div>-->
+      <!--            <router-link :to="{ name: to, params: { id: props.row.id } }">{{-->
+      <!--              props.key-->
+      <!--            }}</router-link>-->
+      <!--          </div>-->
+      <!--        </q-td>-->
+      <!--      </template>-->
     </q-table>
   </div>
 </template>

@@ -1,7 +1,8 @@
 <template>
   <div class="page-rooms">
+    <PagePreLoader v-if="state.isLoading" />
     <PageHeader :title="title" />
-    <GridRoomsPage />
+    <GridRoomsPage :data="getFilteredRooms" />
     <div class="page-rooms__button">
       <UiBtn label="Создать комнату" @click="state.showModal = true" />
     </div>
@@ -13,10 +14,11 @@
   </ShowDialog>
 </template>
 <script setup>
-import { computed, reactive } from 'vue'
+import { computed, reactive, onMounted } from 'vue'
 import { PageHeader } from 'components/PageHeader'
 import { useRoute } from 'vue-router'
 import { GridRoomsPage } from './grid'
+import { PagePreLoader } from 'components/PagePreloader'
 import { UiBtn } from 'components/UiBtn'
 import { ShowDialog } from 'components/ShowDialog'
 import { RoomForm } from 'components/RoomForm'
@@ -30,16 +32,23 @@ defineOptions({
 const route = useRoute()
 
 const state = reactive({
-  showModal: false
+  showModal: false,
+  rooms: null
 })
 
 const filter = computed(() => route.params.filter)
 const title = computed(() =>
   filter.value === 'all' ? 'Все комнаты' : 'Название комнаты'
 )
-
+const getFilteredRooms = computed(
+  () =>
+    state?.rooms?.map(room => ({
+      name: room.name,
+      description: room.description,
+      status: room.is_started ? 'Игра началась' : 'Игра не началась'
+    })) || []
+)
 const onCreateRoom = async payload => {
-  console.log(payload)
   const { name, description } = payload
   try {
     const data = await api.post(
@@ -55,8 +64,9 @@ const onCreateRoom = async payload => {
     if (data?.status === 200) {
       emitter.emit('notify', {
         type: 'success',
-        message: `Вы создали комнату! Обновите страницу!`
+        message: `Вы создали комнату!`
       })
+      await fetchRooms()
     }
   } catch (error) {
     console.log(error)
@@ -67,6 +77,27 @@ const onCreateRoom = async payload => {
   }
   state.showModal = false
 }
+const fetchRooms = async () => {
+  state.isLoading = true
+  try {
+    const res = await api.get('/room/my')
+    if (res?.status === 200) {
+      const { rooms } = res?.data || {}
+      state.rooms = rooms
+    }
+  } catch (error) {
+    emitter.emit('notify', {
+      type: 'negative',
+      message: `Ошибка создания. ${error?.message || ''}`
+    })
+  } finally {
+    state.isLoading = false
+  }
+}
+
+onMounted(async () => {
+  await fetchRooms()
+})
 </script>
 <style>
 .page-rooms__button {

@@ -2,8 +2,8 @@ export default [
   {
     name: 'name',
     label: 'Название комнаты',
-    align: 'name',
-    field: 'num',
+    align: 'left',
+    field: 'name',
     style: 'width: 20%'
   },
   {
@@ -17,7 +17,7 @@ export default [
     name: 'status',
     label: 'Статус',
     align: 'left',
-    field: 'name',
+    field: 'status',
     style: 'width: 22.5%'
   }
 ]

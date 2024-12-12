@@ -4,7 +4,7 @@ import { useAuthStore } from 'src/stores/auth/authStore'
 
 // Создаём экземпляр Axios
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: 'https://zolotomc.net/santa',
   headers: {
     'Content-Type': 'application/json'
   }

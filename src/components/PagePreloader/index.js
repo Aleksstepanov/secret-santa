@@ -1,1 +1,1 @@
-export { default } from './PagePreLoader.vue'
+export { default as PagePreLoader } from './PagePreLoader.vue'
