@@ -4,7 +4,7 @@ import { useAuthStore } from 'src/stores/auth/authStore'
 
 // Создаём экземпляр Axios
 const api = axios.create({
-  baseURL: process.env.VITE_STRAPI_REST || 'https://zolotomc.net/santa',
+  baseURL: '/api',
   headers: {
     'Content-Type': 'application/json'
   }
