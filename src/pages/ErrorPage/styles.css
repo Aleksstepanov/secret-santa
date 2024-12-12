@@ -1,3 +1,114 @@
 .error-page {
   display: flex;
 }
+
+.element {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.element .div {
+  background-color: #ffffff;
+  height: 1080px;
+  position: relative;
+  width: 1920px;
+}
+
+.element .overlap {
+  /* height: 80px; */
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.element .header-instance {
+  border-bottom-style: solid !important;
+  border-bottom-width: 1px !important;
+  border-color: #000000 !important;
+  left: 0 !important;
+  position: absolute !important;
+  top: 0 !important;
+}
+
+.element .design-component-instance-node {
+  left: 0 !important;
+  position: absolute !important;
+  top: 0 !important;
+}
+
+.element .rectangle {
+  background-image: url(./rectangle-2.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  border-radius: 16px 16px 0px 0px;
+  height: 134px;
+  left: 0;
+  position: absolute;
+  top: 946px;
+}
+
+.element .text {
+  height: 248px;
+  left: 1040px;
+  position: absolute;
+  top: 231px;
+  width: 675px;
+}
+
+.element .overlap {
+  height: auto;
+  position: relative;
+  top: -1px;
+}
+
+.element .text-wrapper {
+  color: #ab3432;
+  font-family: 'Dela Gothic One', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 120px;
+  left: 0;
+  letter-spacing: -1.2px;
+  line-height: normal;
+  position: absolute;
+  top: 19px;
+  width: 675px;
+}
+
+.element .text-wrapper-2 {
+  color: #000000;
+  font-family: 'Inter-Medium', Helvetica;
+  font-size: 60px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: -0.6px;
+  line-height: normal;
+  position: absolute;
+  top: 175px;
+  width: 675px;
+}
+
+.element .text-wrapper-3 {
+  color: #ab3432;
+  font-family: 'Dela Gothic One', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 40px;
+  left: 0;
+  letter-spacing: -0.4px;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+}
+
+.element .error {
+  height: 825px;
+  left: 73px;
+  object-fit: cover;
+  position: absolute;
+  top: 121px;
+  width: 804px;
+}

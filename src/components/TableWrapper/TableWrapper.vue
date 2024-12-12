@@ -7,6 +7,7 @@
       row-key="name"
       flat
       bordered
+      no-data-label="Комнат нет!"
       :hide-pagination="hidePagination"
       :pagination="pagination"
       @update:pagination="updatePagination({ pagination: $event })"

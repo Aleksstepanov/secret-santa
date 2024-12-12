@@ -20,6 +20,8 @@ import { GridRoomsPage } from './grid'
 import { UiBtn } from 'components/UiBtn'
 import { ShowDialog } from 'components/ShowDialog'
 import { RoomForm } from 'components/RoomForm'
+import { emitter } from 'src/plugins'
+import { api } from 'src/boot/axios'
 
 defineOptions({
   name: 'RoomsPage'
@@ -36,8 +38,33 @@ const title = computed(() =>
   filter.value === 'all' ? 'Все комнаты' : 'Название комнаты'
 )
 
-const onCreateRoom = payload => {
+const onCreateRoom = async payload => {
   console.log(payload)
+  const { name, description } = payload
+  try {
+    const data = await api.post(
+      '/room/create',
+      {
+        name,
+        description
+      },
+      {
+        mode: 'cors'
+      }
+    )
+    if (data?.status === 200) {
+      emitter.emit('notify', {
+        type: 'success',
+        message: `Вы создали комнату! Обновите страницу!`
+      })
+    }
+  } catch (error) {
+    console.log(error)
+    emitter.emit('notify', {
+      type: 'negative',
+      message: `Ошибка создания. ${error?.message || ''}`
+    })
+  }
   state.showModal = false
 }
 </script>

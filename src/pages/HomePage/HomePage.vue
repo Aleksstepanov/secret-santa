@@ -57,10 +57,13 @@ const onClick = () => {
   margin: 0;
   margin-top: 43px;
   text-align: center;
+  font-family: 'Dela Gothic One', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  cursor: default;
 }
 .text {
   font-size: 30px;
-  font-weight: 400;
   line-height: 42px;
   text-align: center;
   text-underline-position: from-font;
@@ -68,6 +71,9 @@ const onClick = () => {
   margin: 0;
   margin-right: 15%;
   margin-left: 15%;
+  font-family: 'Inter', Helvetica;
+  font-weight: 400;
+  cursor: default;
 }
 .buttons {
   display: flex;
@@ -76,13 +82,19 @@ const onClick = () => {
   margin-top: 80px;
 }
 .buttons button {
-  height: 165px !important;
-  width: 600px !important;
   border-radius: 50px;
 }
 .main_btn span {
-  font-size: 48px;
+  font-size: 50px;
+  font-family: 'Dela Gothic One', sans-serif;
+  font-weight: 400;
 }
+
+.main_btn {
+  height: 162px;
+  width: 731px !important;
+}
+
 .img {
   background-size: cover;
   background-repeat: no-repeat;
