@@ -39,11 +39,11 @@ const onClick = () => {
 </script>
 <style>
 .image-container {
-  background-image: url('src/assets/kartinka.jpg');
+  background-image: url('src/assets/santa.png');
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  height: 200px;
+  height: 400px;
 }
 .title {
   font-size: 54px;
