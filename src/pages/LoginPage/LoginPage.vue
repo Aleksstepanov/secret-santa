@@ -1,6 +1,6 @@
 <template>
   <div class="login-page">
-    <div class="login-page__img"></div>
+    <!-- <div class="login-page__img"></div> -->
     <LoginForm
       class="login-page__form"
       :is-register="state.isRegister"

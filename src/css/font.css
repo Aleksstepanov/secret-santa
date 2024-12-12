@@ -1,8 +1,10 @@
-@font-face {
+/* @font-face {
   font-family: 'DeltaGothic';
   src: url('src/assets/fonts/Dela-Gothic-One/DelaGothicOne-Regular.ttf') format('ttf')
     url('src/assets/fonts/Dela-Gothic-One/DelaGothicOne-Regular.woff') format('woff');
+
   font-weight: bold;
   font-style: normal;
   font-display: swap;
-}
+} */
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');

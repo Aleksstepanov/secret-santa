@@ -1,10 +1,13 @@
 .button {
   background-color: #ab3432;
   width: 200px;
-  /*height: 162px;*/
-  /*padding: 36px 0 0 0;*/
-  /*gap: 36px;*/
   border-radius: 22px;
   border: 4.5px;
   color: white;
+  font-family: 'Dela Gothic One';
+  font-size: 15px;
+}
+
+.button::before {
+  box-shadow: none;
 }

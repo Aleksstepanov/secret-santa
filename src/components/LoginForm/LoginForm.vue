@@ -3,11 +3,11 @@
     <h3 class="login-form__title">Добро пожаловать</h3>
     <q-form class="login-form__form" @submit="onSubmit">
       <UiField v-show="isRegister" direction="column" full-width class="mb-12">
-        <p class="login-form__label">Ваше Имя</p>
+        <p class="login-form__label">Ваше имя</p>
         <UiInput
           v-model:model-value="fields.fullName"
           outlined
-          label="Ваше имя"
+          label="Введите имя"
           class="full-width"
           :loading="loading"
           :disabled="loading"
@@ -18,7 +18,7 @@
         <UiInput
           v-model:model-value="fields.email"
           outlined
-          label="Почта"
+          label="Введите почту"
           class="full-width"
           :loading="loading"
           :disabled="loading"
@@ -32,7 +32,7 @@
           v-model:model-value="fields.password"
           outlined
           type="password"
-          label="Пароль"
+          label="Введите пароль"
           class="full-width"
           :loading="loading"
           :disabled="loading"
@@ -50,6 +50,7 @@
       <UiField direction="row" justify="end" align="center" class="mt-6">
         <UiBtn
           :label="isRegister ? 'Зарегистрироваться' : 'Войти'"
+          :class="isRegister ? 'reg' : ''"
           type="submit"
           :loading="loading"
         />
