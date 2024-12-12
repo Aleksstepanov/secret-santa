@@ -1,13 +1,42 @@
 <template>
-  <div class="error-page">
-    <p>{{ getTitleError.title }}</p>
-    <h3>{{ getTitleError.subtitle }}</h3>
-    <p>{{ getTitleError.message }}</p>
+  <!-- <div class="element">
+    <div class="error-page">
+      <div class="overlap-group">
+        <div class="text-wrapper">{{ getTitleError.message }}</div>
+        <div class="text-wrapper-2">{{ getTitleError.subtitle }}</div>
+        <div class="text-wrapper-3">{{ getTitleError.title }}</div>
+      </div>
+      <h3></h3>
+      <p></p>
+    </div>
+  </div>
+  <div class="rectangle" />
+
+  <img class="error" alt="Error" :src="errorImage" /> -->
+  <div class="element">
+    <div class="div">
+      <div class="overlap">
+        <Header class="header-instance" logo="image.svg" />
+        <Header class="design-component-instance-node" logo="logo-2.svg" />
+      </div>
+
+      <div class="rectangle" />
+
+      <div class="text">
+        <div class="overlap-group">
+          <div class="text-wrapper-3">{{ getTitleError.title }}</div>
+          <div class="text-wrapper">{{ getTitleError.subtitle }}</div>
+          <div class="text-wrapper-2">{{ getTitleError.message }}</div>
+        </div>
+      </div>
+
+      <img class="error" alt="Error" :src="errorImage" />
+    </div>
   </div>
 </template>
 <script setup>
 import { computed } from 'vue'
-
+import errorImage from 'src/assets/error.svg'
 // props
 const props = defineProps({
   code: {
@@ -21,33 +50,33 @@ const getTitleError = computed(() => {
   switch (props.code) {
     case '404':
       return {
-        title: 'Ошибка',
+        title: 'ошибка',
         subtitle: '404',
-        message: 'Страница не нацдена ;('
+        message: 'cтраница не найдена ;('
       }
     case '400':
       return {
-        title: 'Ошибка',
+        title: 'ошибка',
         subtitle: '400',
-        message: 'Что то пошло не так ;('
+        message: 'что то пошло не так ;('
       }
     case '403':
       return {
-        title: 'Ошибка',
+        title: 'ошибка',
         subtitle: '403',
-        message: 'У вас нет прав для просмотра этой страницы ;('
+        message: 'у вас нет прав для просмотра этой страницы ;('
       }
     case '500':
       return {
-        title: 'Ошибка',
+        title: 'ошибка',
         subtitle: '500',
-        message: 'Сервис временно недоступен ;('
+        message: 'сервис временно недоступен ;('
       }
     default:
       return {
-        title: 'Ошибка',
+        title: 'ошибка',
         subtitle: '400',
-        message: 'Что то пошло не так ;('
+        message: 'что то пошло не так ;('
       }
   }
 })

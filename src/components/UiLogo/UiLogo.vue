@@ -1,6 +1,6 @@
 <template>
   <div class="logo">
-    <img :src="logoSrc" alt="Logo" class="logo__svg" />
+    <a href="/"><img :src="logoSrc" alt="Logo" class="logo__svg" /></a>
   </div>
 </template>
 <script setup>
