@@ -8,7 +8,7 @@
   </div>
   <ShowDialog v-model:show-dialog="state.showModal" @close="state.showModal = false">
     <template #form>
-      <RoomForm @submit="onCreateRoom" />
+      <RoomForm class="roomform" @submit="onCreateRoom" />
     </template>
   </ShowDialog>
 </template>

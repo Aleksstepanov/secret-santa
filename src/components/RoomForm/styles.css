@@ -35,3 +35,13 @@
 .login-form__form {
   width: 100%;
 }
+.roomform {
+  display: flex;
+  width: 97%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  font-family: 'Dela Gothic One', sans-serif;
+  border-radius: 100px;
+}
